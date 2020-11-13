@@ -266,7 +266,7 @@ def sync(workerid, srcdev, dsthost, dstdev, options):
       print("[worker %d] Failed creating destination file on the remote host!" % workerid, file = options.outfile)
       sys.exit(1)
 
-    a, b = line.split()
+    a, b = line.rsplit(' ', 1)
     if a != dstdev:
         print("[worker %d] Dest device (%s) doesn't match with the remote host (%s)!" % (workerid, dstdev, a), file = options.outfile)
         sys.exit(1)
